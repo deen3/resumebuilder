@@ -1,0 +1,148 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">RESUME BUILDER</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id="print"><i class="fa fa-print"></i> PRINT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1">
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <label class="col-md-12">Full Name</label>
+          <div class="col-md-12">
+            <input type="text" placeholder="Full Name" name="full_name">
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-md-12">Profession</label>
+          <div class="col-md-12">
+            <input type="text" placeholder="Profession" name="profession">
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-md-12">Address</label>
+          <div class="col-md-12">
+            <input type="text" placeholder="Address" name="address">
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-md-6">Email</label>
+          <label class="col-md-6">Phone</label>
+          <div class="col-md-6">
+            <input type="text" placeholder="Email" name="email">
+          </div>
+          <div class="col-md-6">
+            <input type="text" placeholder="Phone" name="phone">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label>Professional Summary</label>
+            <textarea name="summary" id="" cols="30" rows="5"></textarea>
+          </div>
+        </div>
+
+
+        <hr>
+        <h4>EXPERIENCE</h4>
+        <div class="add-btn" id="add-experience">ADD EXPERIENCE</div>
+        <div id="experiences-form"></div>        
+
+        <hr>
+        <h4>EDUCATION</h4>
+        <div class="add-btn" id="add-education">ADD EDUCATION</div>
+        <div id="education-form"></div>          
+
+        <hr>
+        <h4>SKILL</h4>
+        <div class="add-btn" id="add-skill">ADD SKILL</div>
+        <div id="skill-form"></div>  
+        
+        <hr>
+        <button class="btn btn-primary btn-block" type="submit">SAVE</button>
+        
+      </form>
+    </div>
+
+    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+    <div class="col-md-6">
+      <div id="preview">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h3 id="full_name">Full Name</h3>
+            <p id="summary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti aliquid consectetur omnis suscipit non quas architecto nobis dolores eius autem!</p>
+        
+
+          </div>
+          <div class="col-md-12">
+            <div class="det">
+              <span class="det-icon"><i class="fa fa-briefcase"></i></span>
+              <span class="det-val" id="profession">Profession</span>
+            </div>
+
+            <div class="det">
+              <span class="det-icon"><i class="fa fa-map-marker"></i></span>
+              <span class="det-val" id="address">Address</span>
+            </div>
+
+            <div class="det">
+              <span class="det-icon"><i class="fa fa-envelope"></i></span>
+              <span class="det-val" id="email">Email</span>
+            </div>
+
+            <div class="det">
+              <span class="det-icon"><i class="fa fa-phone"></i></span>
+              <span class="det-val" id="phone">Phone</span>
+            </div>
+          </div>
+        </div>
+      
+        <hr>
+
+        <h4>WORK EXPERIENCE</h4>
+        <div id="experiences"></div>
+        
+        <hr>
+        <h4>EDUCATION</h4>
+        <div id="education"></div>
+        
+        <hr>
+        <h4>SKILLS</h4>
+        <div id="skills"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>RESUME BUILDER</p>
+  <p>© Dina Fajardo</p> 
+</footer>
+{% endblock %}
